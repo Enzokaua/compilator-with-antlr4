@@ -1,7 +1,7 @@
 from AlgorithmLexer import AlgorithmLexer
 from AlgorithmParser import *
-from SubSumMulDivAlgorithm import SubSumMulDivAlgorithm
+from MathOperations import AlgorithmExecutor
 
 input_stream = InputStream(input('Enter algorithm -> '))
-visitor = SubSumMulDivAlgorithm()
+visitor = AlgorithmExecutor()
 print("Resulted:", visitor.visit(AlgorithmParser(CommonTokenStream(AlgorithmLexer(input_stream))).root()))
