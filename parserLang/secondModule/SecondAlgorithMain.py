@@ -1,6 +1,6 @@
 from AlgorithmLexer import AlgorithmLexer
 from AlgorithmParser import *
-from MathOperations import AlgorithmExecutor
+from firstModule.MathOperations import AlgorithmExecutor
 
 input_stream = InputStream(input('Enter algorithm -> '))
 visitor = AlgorithmExecutor()
