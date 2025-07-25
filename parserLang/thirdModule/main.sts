@@ -1,0 +1,6 @@
+a===3;
+b===4;
+logger(a);
+logger(b);
+c===a+b;
+logger(c);
