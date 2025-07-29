@@ -76,4 +76,34 @@ class AlgorithmWithActions(ThirdAlgorithmVisitor):
             return value
 
     def visitLog(self, ctx: ThirdAlgorithmParser.LogContext):
-        return self.visit(ctx.expr())
+        value = self.visit(ctx.expr())
+        return value
+
+    def visitComparacao(self, ctx: ThirdAlgorithmParser.ComparacaoContext):
+        left = self.visit(ctx.expr(0))
+        right = self.visit(ctx.expr(1))
+        op = ctx.OP_COMPARACAO().getText()
+
+        if op == '==':
+            return left == right
+        elif op == '!=':
+            return left != right
+        elif op == '>':
+            return left > right
+        elif op == '<':
+            return left < right
+        elif op == '>=':
+            return left >= right
+        elif op == '<=':
+            return left <= right
+
+    def visitBooleano(self, ctx: ThirdAlgorithmParser.BooleanoContext):
+        return ctx.BOOL().getText() == 'true'
+
+    def visitCondicoes(self, ctx:ThirdAlgorithmParser.CondicoesContext):
+        condition = self.visit(ctx.expr())
+        if condition:
+            return self.visit(ctx.action(0))
+        elif ctx.ELSE():
+            return self.visit(ctx.action(1))
+        return None

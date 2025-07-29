@@ -4,3 +4,31 @@ logger(a);
 logger(b);
 c===a+b;
 logger(c);
+case (a==b)
+    logger(true);
+when
+    logger(false);
+case (a!=b)
+    logger(true);
+when
+    logger(false);
+case(a>b)
+    logger(true);
+when
+    logger(false);
+case(a>=b)
+    logger(true);
+when
+    logger(false);
+case(a<b)
+    logger(true);
+when
+    logger(false);
+case(a<=b)
+    logger(true);
+when
+    logger(false);
+case(c==c)
+    logger(true);
+when
+    logger(false);
